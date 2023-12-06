@@ -1,0 +1,12 @@
+<div id="List">
+  <h2> List component</h2>
+  <input type="text" [(ngModel)]="inputText">
+  <button (click)="inputToArray()">Zapisz</button>
+  <ol>
+    <li *ngFor="let element of list;index as i">
+      {{element}}
+      <a href="#" (click)="remove(i)">usuń</a>
+    </li>
+  </ol>
+
+</div>
