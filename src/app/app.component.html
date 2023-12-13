@@ -1,5 +1,9 @@
-<h1> {{title}}} </h1>
+<header>
+  <h1>Lista kontaktów</h1>
+</header>
 
-<app-random [max]="10"></app-random>
-<app-random [max]="100"></app-random>
-<app-list></app-list>
+<div class="router-outlet">
+  <router-outlet></router-outlet>
+</div>
+
+<footer>Dariusz Tokarski</footer>

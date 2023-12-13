@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Person} from "../person";
+import {PersonLsService} from "../person-ls.service";
 
 @Component({
   selector: 'app-list',
@@ -7,21 +9,18 @@ import { Component } from '@angular/core';
 })
 export class ListComponent {
 
-  list: string[] = [];
-  inputText: string = "";
-
-  ngOnInit(): void{
-
+  people: Person[] = [];
+  constructor( private personService: PersonLsService) {
   }
+  ngOnInit(){
+    this.people = this.personService.getAll();
+}
 
-  inputToArray(): void{
-    if(this.inputText){
-      this.list.push(this.inputText);
-      this.inputText="";
+  delete(index: number): void{
+    if(confirm("Czy na pewno chcesz usunąć kontakt?")){
+      this.personService.deletePerson(index);
+      this.people = this.personService.getAll();
     }
   }
 
-  remove(index: number): void{
-    this.list.splice(index,1);
-  }
 }

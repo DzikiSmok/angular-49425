@@ -1,0 +1,34 @@
+<div>
+  <a [routerLink]="['/list']"> Powrót </a>
+</div>
+
+<div *ngIf="person" class="details">
+ <h2> {{person.firstName}} {{person.lastName}}</h2>
+
+  <dl>
+  <dt>ID:</dt>
+    <dd>{{personId}}</dd>
+  </dl>
+
+  <dl class="even">
+    <dt>Wiek:</dt>
+    <dd>{{person.age}}</dd>
+  </dl>
+
+  <dl *ngIf="person.address">
+    <dt>Miasto:</dt>
+    <dd>{{person.address.city}}</dd>
+  </dl>
+
+  <dl *ngIf="person.address" class="even">
+    <dt>Ulica:</dt>
+    <dd>{{person.address.street}}</dd>
+  </dl>
+
+  <dl *ngIf="person.address">
+    <dt>Kod pocztowy:</dt>
+    <dd>{{person.address.postCode}}</dd>
+  </dl>
+</div>
+
+
