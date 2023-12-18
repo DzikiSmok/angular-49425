@@ -1,14 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-body{
+body {
   background: url("https://placehold.co/100x100/FFFFFF/EFEFEF/png?text=49425");
 }
 
-header{
-  background: darkblue;
-  color: white;
-}
-
-footer{
-  background: lightgreen;
-  color: black;
+* {
+  box-sizing: border-box;
 }
