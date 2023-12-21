@@ -8,11 +8,15 @@ header{
   margin-bottom: 1em;
 }
 header nav{
+  display: flex;
   gap: 1em;
 }
-a{ color: white; text-decoration: none;}
-a:hover{color:red;}
+header a{ color: white; text-decoration: none;}
+header a:hover{color:red;}
 
 footer{
   background-color: lightgreen;
+  display: flex;
+  gap: 1em;
 }
+footer a:hover{color:white;}

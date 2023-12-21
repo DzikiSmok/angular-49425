@@ -1,0 +1,38 @@
+<main>
+  <div class="unauthorized" *ngIf="!isAuthenticated()">
+    <div>
+      Nie jesteś zalogowany! Nie możesz zobaczyć zakładki <strong>'Przedmioty'</strong> oraz <strong>'Użytkownicy'</strong>.
+    </div>
+    <form (submit)="loginSubmit()">
+      <div>
+        <label for="username">Login:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" />
+      </div>
+      <div>
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" />
+      </div>
+      <div>
+        <input   type="submit" value="zaloguj" />
+      </div>
+      <div *ngIf="error">
+        <div class="error">
+          {{error}}
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="authorized" *ngIf="isAuthenticated()&&!isAdmin()">
+    <p>
+      Jesteś zalogowany. Możesz zobaczyć zakładkę <strong>'Przedmioty'</strong>.
+      Jeśli byłbyś adminem, mógłbyś zobaczyć zakładkę <strong>'Użytkownicy'</strong>.
+    </p>
+  </div>
+  <div class="admin" *ngIf="isAdmin()">
+    <p>
+      Jesteś zalogowany. Możesz zobaczyć zakładkę <strong>'Przedmioty'</strong>.
+      Jesteś też adminem, więc możesz zobaczyć zakładkę <strong>'Użytkownicy'</strong>.
+    </p>
+  </div>
+</main>

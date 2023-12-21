@@ -1,8 +1,9 @@
 <header>
-  <h1>Lista zadań</h1>
+  <h1>Przykład autoryzacji za pomocą JWT</h1>
   <nav>
-  <a routerLink="/tasks" routerLinkActive="active">Lista zadań</a>
-  <a routerLink="/archive" routerLinkActive="active"> Archiwum zadań</a>
+  <a routerLink="/" routerLinkActive="active">Start</a>
+  <a routerLink="/users" routerLinkActive="active" *ngIf="canAccessUsers()">Użytkownicy</a>
+  <a routerLink="/items" routerLinkActive="active" *ngIf="canAccessItems()">Przedmioty</a>
   </nav>
 </header>
 
@@ -10,4 +11,12 @@
   <router-outlet></router-outlet>
 </div>
 
-<footer>Dariusz Tokarski</footer>
+<footer *ngIf="getUsername()">
+  <div>
+    {{getUsername()}}
+  </div>
+  <a class="logout" href (click)="logout()">
+    Wyloguj
+  </a>
+</footer>
+<footer *ngIf="!getUsername()">Nie jesteś zalogowany!</footer>
